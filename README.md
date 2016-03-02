@@ -31,14 +31,16 @@ Note this is a prototype code, so I did not bother with a `setup.py` script.
 All executables should be run in place from the `code/` directory.
 
 The following steps will reproduce all results:
-1. `cd data/input_data`
-2. `curl -o auth.txt.gz http://csr.lanl.gov/data/cyber1/auth.txt.gz`
-3. `gunzip -c auth.txt.gz | split -d -a 5 -l 1000000`
-4. `cd ../../code/`
-5. `./train.py`
-6. `./study_chunk.py`
-7. `./run_classifier.py -s 1 -e 1051`
-8. `./summarize.py`
+1. `mkdir data/input_data`
+2. `mkdir data/intermediate_data`
+3. `cd data/input_data`
+4. `curl -o auth.txt.gz http://csr.lanl.gov/data/cyber1/auth.txt.gz`
+5. `gunzip -c auth.txt.gz | split -d -a 5 -l 1000000`
+6. `cd ../../code/`
+7. `./train.py`
+8. `./study_chunk.py`
+9. `./run_classifier.py -s 1 -e 1051`
+10. `./summarize.py`
 
 
 ## Notes
@@ -54,7 +56,7 @@ Additionally, it is assumed all inputs files are named with a x followed by a 5-
 
 ### Getting the data
 
-This is covered by Steps 1-3 above. Of course the file auth.txt.gz
+This is covered by Steps 1-5 above. Of course the file auth.txt.gz
 can be obtained by many means other than curl.
 
 Note some versions of `split` do not accept the `-d` or `--numeric-suffixes`
@@ -71,11 +73,11 @@ Then you can split the files and rename them according to the mapping.
 
 ### Training the classifier
 
-Step 5 just tallies Success and Failures in the first chunk of 1 million auth
+Step 7 just tallies Success and Failures in the first chunk of 1 million auth
 events without trying to predict the outcome. This is used to set the prior
 probabilities used to classify the subsequent chunks.
 
-Step 6 Merely produces a plot of the Success/Fail rates in this first chunk
+Step 8 Merely produces a plot of the Success/Fail rates in this first chunk
 and prints some other summary information about the chunk to stdout.
 
 Note these two scripts hardcode the location of the first input chunk,
@@ -85,7 +87,7 @@ elsewhere you will have to edit these scripts with a trivial change.
 
 ### Running the classifier
 
-Step 7 will run the classifier over the entire dataset. Note this will take
+Step 9 will run the classifier over the entire dataset. Note this will take
 roughly two hours on a modest laptop. You may wish to run over a smaller subset
 first to test it out, e.g.
 
@@ -101,7 +103,7 @@ by default `sqrrl_homework/data/summary_data/xN.json` for chunk N.
 It will also produced pickled output that the code uses internally to
 `sqrrl_homework/data/intermediate_data`.
 
-Step 8 merely parses all of these JSON outputs and writes final, cumulative
+Step 10 merely parses all of these JSON outputs and writes final, cumulative
 performance stats to both stdout and an output JSON file, by default
 `sqrrl_homework/data/summary_data/final_summary.json`
 
