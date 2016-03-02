@@ -1,0 +1,20 @@
+{
+    "percentages": {
+        "Correct_Success": 98.76896819877916,
+        "Overall_Correct": 99.87917058296193,
+        "Correct_Fail": 1.1102023841827686,
+        "Overall_Incorrect": 0.12082941703806782,
+        "Incorrect_Success": 0.11152827776103168,
+        "Incorrect_Fail": 0.009301139277036139
+    },
+    "results": {
+        "Fail": 12840308,
+        "Success": 1038590151
+    },
+    "predictions": {
+        "Correct_Fail": 11661904,
+        "Incorrect_Success": 1171527,
+        "Correct_Success": 1037499326,
+        "Incorrect_Fail": 97702
+    }
+}

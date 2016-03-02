@@ -1,0 +1,12 @@
+{
+    "results": {
+        "Fail": 32918,
+        "Success": 967082
+    },
+    "predictions": {
+        "Correct_Fail": 32526,
+        "Incorrect_Success": 392,
+        "Correct_Success": 967075,
+        "Incorrect_Fail": 7
+    }
+}
