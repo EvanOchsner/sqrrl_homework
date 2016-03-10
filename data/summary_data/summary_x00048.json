@@ -4,9 +4,9 @@
         "Success": 994926
     },
     "predictions": {
-        "Correct_Fail": 4200,
-        "Incorrect_Success": 874,
-        "Correct_Success": 994920,
-        "Incorrect_Fail": 6
+        "Correct_Fail": 4792,
+        "Incorrect_Success": 282,
+        "Correct_Success": 994328,
+        "Incorrect_Fail": 598
     }
 }

@@ -6,7 +6,7 @@
     "predictions": {
         "Correct_Fail": 7827,
         "Incorrect_Success": 158,
-        "Correct_Success": 992010,
-        "Incorrect_Fail": 5
+        "Correct_Success": 992008,
+        "Incorrect_Fail": 7
     }
 }
