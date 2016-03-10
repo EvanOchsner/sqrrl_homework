@@ -222,7 +222,7 @@ in this and the previous chunk. Dictionary lookups are fast in Python, so this i
 The total number of successes in this and the previous scheme are simply stored as integers. The likelihood for $R$
 (either $S$ or $F$) is computed as:
 \begin{equation}
-p(K|R) = \frac{N_{R,curr}(K) + N_{R,prev}}{N_{R,curr} + N_{R,prev}}\ ,
+p(K|R) = \frac{N_{R,curr}(K) + N_{R,prev}(K)}{N_{R,curr} + N_{R,prev}}\ ,
 \end{equation}
 where ``curr'' and ``prev'' denote tallies from the current and previous chunks.  
 The likelihood ratio is multiplied by the prior ratio to compute the Bayes factor $B$. If $B > 1$,
@@ -255,14 +255,29 @@ The first chunk of one million events was used as a training set to compute the 
 The remaining one billion plus events were processed by the Bayesian classifier code and the results tallied.
 The results are summarized in Table~\ref{Table1}.
 
+%\begin{center}
+%\begin{table}
+%\begin{tabular}{|c|c|cc|}
+%\hline
+% & & \multicolumn{2}{ c |}{Prediction} \\ \hline
+% & & Success & Fail \\ \hline
+% \multirow{2}{*}{Result} & Success  & 98.77\% & 0.01\% \\
+% & Fail  & 0.11\% & 1.11\% \\ \hline
+%\end{tabular}
+%\caption{Breakdown of auth events by predicted outcome and actual result.
+%Note that 99.88\% of events were correctly classified.}
+%\label{Table1}
+%\end{table}
+%\end{center}
+
 \begin{center}
 \begin{table}
 \begin{tabular}{|c|c|cc|}
 \hline
  & & \multicolumn{2}{ c |}{Prediction} \\ \hline
  & & Success & Fail \\ \hline
- \multirow{2}{*}{Result} & Success  & 98.77\% & 0.01\% \\
- & Fail  & 0.11\% & 1.11\% \\ \hline
+ \multirow{2}{*}{Result} & Success  & 98.75\% & 0.03\% \\
+ & Fail  & 0.09\% & 1.13\% \\ \hline
 \end{tabular}
 \caption{Breakdown of auth events by predicted outcome and actual result.
 Note that 99.88\% of events were correctly classified.}
@@ -270,9 +285,9 @@ Note that 99.88\% of events were correctly classified.}
 \end{table}
 \end{center}
 
-Note that $99.88\%$ of events were correctly classified. Of the successful authentications, only about $1$ in $10,000$
+Note that $99.88\%$ of events were correctly classified. Of the successful authentications, only about $3$ in $10,000$
 was misclassified as an expected failure. Of the failed authentications, about $91\%$ were correctly predicted to be failures.
-If we think of these failures as anomalies we wish to detect, then this method detected $\sim 91\%$ of the anomalies
+If we think of these failures as anomalies we wish to detect, then this method detected $\sim 93\%$ of the anomalies
 with a false-alarm probability of $0.01\%$.
 
 
