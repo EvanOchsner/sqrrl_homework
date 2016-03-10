@@ -71,7 +71,7 @@ class AuthClassifier:
         except KeyError:
             pass
         # p(key|S) = recent successes of key / total recent successes
-        like_S / (self.NS_curr + self.NS_prev)
+        like_S /= (self.NS_curr + self.NS_prev)
 
         # Likelihood of key, given Failure
         like_F = 0.
@@ -84,7 +84,7 @@ class AuthClassifier:
         except KeyError:
             pass
         # p(key|F) = recent failures of key / total recent failures
-        like_F / (self.NF_curr + self.NF_prev)
+        like_F /= (self.NF_curr + self.NF_prev)
 
         if like_S==0. and like_F== 0.:
             # Data uninformative, set LR=1 so posterior = prior
